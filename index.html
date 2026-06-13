@@ -1,413 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Alok Kumar Upadhyay – Safety & Training Professional</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alok Kumar Upadhyay – Safety & Training Professional</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy:    #0D1B2A;
+      --steel:   #1E3A5F;
+      --amber:   #D4831F;
+      --amber-lt:#F2A84B;
+      --smoke:   #F5F6F8;
+      --white:   #FFFFFF;
+      --text:    #1A1A2E;
+      --muted:   #6B7280;
+      --border:  #E2E6EA;
+    }
 
-  :root {
-    --navy:    #0D1B2A;
-    --steel:   #1E3A5F;
-    --orange:  #E8651A;
-    --cream:   #F5F0E8;
-    --mist:    #D6E4F0;
-    --text:    #1A2535;
-    --subtle:  #6B7F96;
-    --border:  #C8D8E8;
-    --mono:    'IBM Plex Mono', monospace;
-    --sans:    'Inter', sans-serif;
-  }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--smoke);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-  body {
-    font-family: var(--sans);
-    background: var(--cream);
-    color: var(--text);
-    line-height: 1.6;
-  }
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--steel) 100%);
+      color: var(--white);
+      padding: 64px 32px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      background: rgba(212,131,31,0.12);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    .hero-avatar {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--amber);
+      object-fit: cover;
+      flex-shrink: 0;
+      background: var(--steel);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px; color: var(--amber-lt);
+      font-family: 'DM Serif Display', serif;
+    }
+    .hero-text h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+    .hero-text h1 em {
+      font-style: italic;
+      color: var(--amber-lt);
+    }
+    .hero-role {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--amber-lt);
+    }
+    .hero-summary {
+      margin-top: 16px;
+      font-size: 0.97rem;
+      color: rgba(255,255,255,0.80);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+    .hero-contacts {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .contact-chip {
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.88);
+    }
+    .contact-chip svg { width:14px; height:14px; flex-shrink:0; }
 
-  /* ─── HERO ─── */
-  .hero {
-    background: var(--navy);
-    color: #fff;
-    padding: 72px 48px 56px;
-    position: relative;
-    overflow: hidden;
-  }
+    /* ── MAIN LAYOUT ── */
+    .main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 40px;
+    }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 320px; height: 320px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(232,101,26,0.18) 0%, transparent 70%);
-    pointer-events: none;
-  }
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
 
-  .hero-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 32px;
-    align-items: start;
-  }
+    /* ── EXPERIENCE ── */
+    .exp-block {
+      margin-bottom: 40px;
+    }
+    .exp-header {
+      display: flex; flex-wrap: wrap; align-items: flex-start;
+      justify-content: space-between; gap: 8px;
+    }
+    .exp-company {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--navy);
+    }
+    .exp-duration {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: var(--navy);
+      color: var(--white);
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .exp-project {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .exp-role {
+      margin-top: 6px;
+      font-weight: 600;
+      font-size: 0.93rem;
+      color: var(--steel);
+    }
+    .exp-dept {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .exp-list {
+      margin-top: 16px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .exp-list li {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      padding-left: 20px;
+      position: relative;
+      color: #374151;
+    }
+    .exp-list li::before {
+      content: '▸';
+      position: absolute; left: 0;
+      color: var(--amber);
+      font-size: 0.75rem;
+      top: 3px;
+    }
+    .exp-list li strong { color: var(--navy); }
 
-  .hero-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .12em;
-    color: var(--orange);
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
+    /* ── EDUCATION ── */
+    .edu-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .edu-table thead th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+    }
+    .edu-table tbody tr:hover td { background: #EEF2FF; }
+    .edu-table td {
+      padding: 10px 12px;
+      font-size: 0.86rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .edu-table td:first-child { font-weight: 600; color: var(--navy); }
+    .edu-table td:last-child {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--amber);
+    }
 
-  .hero h1 {
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 600;
-    letter-spacing: -.02em;
-    line-height: 1.1;
-    margin-bottom: 12px;
-  }
+    /* ── ACHIEVEMENTS ── */
+    .achievement-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .ach-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--amber);
+      border-radius: 6px;
+      padding: 14px 16px;
+      font-size: 0.85rem;
+      color: #374151;
+      line-height: 1.5;
+    }
 
-  .hero-role {
-    font-size: 1rem;
-    color: var(--mist);
-    font-weight: 300;
-    margin-bottom: 28px;
-  }
+    /* ── SIDEBAR ── */
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 20px;
+      margin-bottom: 24px;
+    }
 
-  .hero-contacts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
+    /* Skills */
+    .skill-group { margin-bottom: 18px; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .skill-tags {
+      display: flex; flex-wrap: wrap; gap: 7px;
+    }
+    .skill-tag {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: var(--smoke);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .skill-tag.amber {
+      background: #FEF3C7;
+      border-color: #FCD34D;
+      color: #92400E;
+    }
 
-  .hero-contacts a {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--mist);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: color .2s;
-  }
-  .hero-contacts a:hover { color: var(--orange); }
-  .hero-contacts a svg { opacity: .7; }
+    /* Certs */
+    .cert-item {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cert-item:last-child { border-bottom: none; }
+    .cert-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--amber); margin-top: 6px; flex-shrink: 0;
+    }
+    .cert-name { font-size: 0.83rem; font-weight: 600; color: var(--navy); }
+    .cert-sub { font-size: 0.75rem; color: var(--muted); }
 
-  .download-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--orange);
-    color: #fff;
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .06em;
-    padding: 12px 22px;
-    border-radius: 4px;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background .2s, transform .15s;
-    border: none;
-    cursor: pointer;
-    margin-top: 4px;
-  }
-  .download-btn:hover { background: #c9551a; transform: translateY(-1px); }
+    /* Software */
+    .sw-bar { margin-bottom: 12px; }
+    .sw-label { font-size: 0.8rem; font-weight: 500; margin-bottom: 5px; display:flex; justify-content:space-between; }
+    .sw-track {
+      height: 5px; background: var(--border); border-radius: 3px; overflow: hidden;
+    }
+    .sw-fill { height: 100%; background: linear-gradient(90deg, var(--steel), var(--amber)); border-radius: 3px; }
 
-  /* ─── SUMMARY STRIPE ─── */
-  .summary-stripe {
-    background: var(--steel);
-    color: var(--mist);
-    padding: 28px 48px;
-    font-size: .9rem;
-    line-height: 1.7;
-    font-weight: 300;
-  }
-  .summary-stripe p { max-width: 900px; margin: 0 auto; }
-  .summary-stripe strong { color: #fff; font-weight: 500; }
+    /* Personal */
+    .personal-row { display:flex; gap:10px; align-items:flex-start; margin-bottom:10px; font-size:0.85rem; }
+    .personal-row:last-child { margin-bottom:0; }
+    .personal-icon { color: var(--amber); flex-shrink:0; }
 
-  /* ─── MAIN CONTENT ─── */
-  .content {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 56px 48px;
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 56px;
-    align-items: start;
-  }
-
-  /* ─── SECTION ─── */
-  .section { margin-bottom: 48px; }
-  .section:last-child { margin-bottom: 0; }
-
-  .section-title {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--orange);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 8px;
-    margin-bottom: 24px;
-  }
-
-  /* ─── EXPERIENCE ─── */
-  .exp-company {
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--navy);
-  }
-  .exp-project {
-    font-size: .85rem;
-    color: var(--subtle);
-    margin-bottom: 4px;
-  }
-  .exp-role {
-    font-size: .95rem;
-    font-weight: 500;
-    color: var(--text);
-  }
-  .exp-dept {
-    font-size: .82rem;
-    color: var(--subtle);
-    font-style: italic;
-  }
-  .exp-period {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--orange);
-    margin: 6px 0 16px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .exp-period::before {
-    content: '';
-    display: inline-block;
-    width: 24px; height: 1px;
-    background: var(--orange);
-  }
-
-  .responsibilities {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .responsibilities li {
-    font-size: .875rem;
-    padding-left: 16px;
-    position: relative;
-    color: #2A3A4E;
-    line-height: 1.55;
-  }
-  .responsibilities li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--orange);
-    font-size: .7rem;
-    top: 3px;
-  }
-
-  /* ─── EDUCATION ─── */
-  .edu-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
-  .edu-table th {
-    text-align: left;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--subtle);
-    padding: 0 0 10px;
-    border-bottom: 1px solid var(--border);
-  }
-  .edu-table td {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-    color: var(--text);
-    line-height: 1.4;
-  }
-  .edu-table td:last-child { color: var(--orange); font-family: var(--mono); font-size: 11px; }
-  .edu-table tr:last-child td { border-bottom: none; }
-
-  /* ─── SIDEBAR ─── */
-  .sidebar .section { margin-bottom: 36px; }
-
-  /* ─── SKILL GROUPS ─── */
-  .skill-group { margin-bottom: 20px; }
-  .skill-group-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    color: var(--subtle);
-    margin-bottom: 10px;
-  }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .skill-tag {
-    background: var(--mist);
-    border: 1px solid var(--border);
-    color: var(--steel);
-    font-size: .75rem;
-    padding: 4px 10px;
-    border-radius: 3px;
-    font-weight: 500;
-  }
-  .skill-tag.accent {
-    background: rgba(232,101,26,.1);
-    border-color: rgba(232,101,26,.3);
-    color: var(--orange);
-  }
-
-  /* ─── CERT ITEMS ─── */
-  .cert-item {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 12px;
-    font-size: .85rem;
-    align-items: flex-start;
-  }
-  .cert-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--orange);
-    flex-shrink: 0;
-    margin-top: 6px;
-  }
-
-  /* ─── PERSONAL ─── */
-  .personal-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: .83rem;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .personal-row:last-child { border-bottom: none; }
-  .personal-label { color: var(--subtle); font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--navy);
-    color: var(--subtle);
-    text-align: center;
-    padding: 24px;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .06em;
-  }
-  footer strong { color: var(--mist); }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 720px) {
-    .hero { padding: 48px 24px 40px; }
-    .hero-inner { grid-template-columns: 1fr; }
-    .summary-stripe { padding: 24px; }
-    .content { grid-template-columns: 1fr; padding: 40px 24px; gap: 0; }
-    .sidebar { margin-top: 0; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .download-btn { transition: none; }
-  }
-</style>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .main { grid-template-columns: 1fr; }
+      .hero-inner { flex-direction: column; align-items: center; text-align: center; }
+      .hero-contacts { justify-content: center; }
+      .achievement-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ─── HERO ─── -->
+<!-- HERO -->
 <header class="hero">
   <div class="hero-inner">
-    <div>
-      <div class="hero-label">Resume — Safety &amp; Training Professional</div>
-      <h1>Alok Kumar<br>Upadhyay</h1>
-      <p class="hero-role">Training Coordinator · Industrial Safety · Learning &amp; Development</p>
+    <div class="hero-avatar">A</div>
+    <div class="hero-text">
+      <p class="hero-role">Training &amp; Safety Professional</p>
+      <h1>Alok Kumar <em>Upadhyay</em></h1>
+      <p class="hero-summary">
+        Motivated professional with hands-on exposure to large-scale power plant operations at a
+        3960 MW Ultra Mega Power Project. Skilled in training coordination, SAP-based documentation,
+        safety compliance reporting, and risk management — with strong command of HIRA, BBS, PTW, and Near-Miss systems.
+      </p>
       <div class="hero-contacts">
-        <a href="tel:+919977547095">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <span class="contact-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 9.81 19.8 19.8 0 01.09 4.18 2 2 0 012.07 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           +91-9977547095
-        </a>
-        <a href="mailto:upadhyayalok95@gmail.com">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        </span>
+        <span class="contact-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           upadhyayalok95@gmail.com
-        </a>
-        <a href="#">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </span>
+        <span class="contact-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Singrauli, Madhya Pradesh – 486892
-        </a>
+        </span>
       </div>
-    </div>
-    <div>
-      <a class="download-btn" href="https://drive.google.com/uc?export=download&id=1WtL3IZgrUgLk7T0GuswkxUAxhaF0_E9u" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download CV
-      </a>
     </div>
   </div>
 </header>
 
-<!-- ─── SUMMARY ─── -->
-<div class="summary-stripe">
-  <p>Motivated Training and Safety professional with hands-on exposure to large-scale power plant operations at a <strong>3960 MW Ultra Mega Power Project</strong>. Skilled in training coordination, SAP-based documentation, safety compliance reporting, and risk management. Strong working knowledge of <strong>HIRA, BBS, PTW, and Near-Miss</strong> frameworks with a disciplined approach to process adherence and workplace safety.</p>
-</div>
-
-<!-- ─── MAIN ─── -->
-<main class="content">
-
+<div class="main">
   <!-- LEFT COLUMN -->
-  <div class="main-col">
+  <main>
 
     <!-- EXPERIENCE -->
-    <section class="section">
-      <div class="section-title">Professional Experience</div>
-
-      <div class="exp-company">Reliance Power Limited</div>
-      <div class="exp-project">Sasan Ultra Mega Power Project (3960 MW) — Singrauli, Madhya Pradesh</div>
-      <div class="exp-role">Apprentice Trainee — Training Coordinator &amp; Computer Operator</div>
-      <div class="exp-dept">Learning &amp; Development Department</div>
-      <div class="exp-period">03 July 2025 – 02 July 2026</div>
-
-      <ul class="responsibilities">
-        <li>Coordinated technical, safety, and statutory training programs for employees across the plant.</li>
-        <li>Prepared monthly and annual Training Calendars and applied the <strong>Kirkpatrick Training Evaluation Model</strong> to measure effectiveness.</li>
-        <li>Maintained training attendance, competency matrices, and compliance documentation with full confidentiality.</li>
-        <li>Assisted in <strong>Hazard Identification &amp; Risk Assessment (HIRA)</strong> activities and supported safety training delivery on BBS, Work at Height, Near-Miss, PTW, Scaffolding, PPEs, Confined Space, Electrical Safety, Chemical Safety, and LOTO.</li>
-        <li>Prepared and maintained <strong>MIS</strong> reports and assisted in <strong>MOPR (Monthly Operational Performance Review)</strong> preparation.</li>
-        <li>Supported <strong>ERM (Environmental Risk Management)</strong> by identifying, documenting, and monitoring environmental risks and compliance requirements.</li>
-        <li>Executed <strong>SAP P72</strong> transactions including FB60 and ML83 (Service Entry / Confirmation).</li>
-        <li>Organised safety awareness programs and employee training sessions.</li>
-      </ul>
-    </section>
-
-    <!-- KEY ACHIEVEMENTS -->
-    <section class="section">
-      <div class="section-title">Key Achievements</div>
-      <ul class="responsibilities">
-        <li>Successfully coordinated safety and technical training programs at one of India's largest coal-fired power plants (3960 MW).</li>
-        <li>Maintained accurate and audit-ready training and compliance documentation across the L&amp;D department.</li>
-        <li>Supported full implementation cycle of HIRA, BBS, PTW, and Near-Miss reporting systems.</li>
-        <li>Contributed to management reporting through MIS, MOPR, ERM, and QRM frameworks.</li>
-      </ul>
+    <section style="margin-bottom:48px;">
+      <p class="section-label">Experience</p>
+      <div class="exp-block">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">Reliance Power Limited</div>
+            <div class="exp-project">Sasan Ultra Mega Power Project (3960 MW) — Singrauli, MP</div>
+          </div>
+          <span class="exp-duration">Jul 2025 – Jul 2026</span>
+        </div>
+        <div class="exp-role">Apprentice Trainee — Training Coordinator &amp; Computer Operator</div>
+        <div class="exp-dept">Learning &amp; Development Department</div>
+        <ul class="exp-list">
+          <li>Coordinated <strong>technical, safety, and statutory training programs</strong> for employees across departments.</li>
+          <li>Prepared <strong>monthly and annual Training Calendars</strong> ensuring full coverage of compliance requirements.</li>
+          <li>Applied <strong>Kirkpatrick Training Evaluation Model</strong> to measure training effectiveness and ROI.</li>
+          <li>Maintained training attendance, records, <strong>competency matrices</strong>, and compliance documentation.</li>
+          <li>Assisted in <strong>Hazard Identification &amp; Risk Assessment (HIRA)</strong> activities plant-wide.</li>
+          <li>Delivered safety awareness sessions on <strong>BBS, Work at Height, Near-Miss, PTW, Scaffolding, Confined Space, Electrical Safety, Chemical Safety, LOTO</strong>, and Heat Stress.</li>
+          <li>Prepared and maintained <strong>MIS (Management Information System)</strong> reports for management review.</li>
+          <li>Assisted in preparation of <strong>MOPR (Monthly Operational Performance Review)</strong> presentations.</li>
+          <li>Supported <strong>ERM (Environmental Risk Management)</strong> — identifying, documenting, and monitoring environmental risks and compliance obligations.</li>
+          <li>Executed <strong>SAP P72 transactions</strong> including FB60 and ML83 (Service Entry/Confirmation).</li>
+          <li>Maintained L&amp;D databases with accuracy and strict confidentiality protocols.</li>
+        </ul>
+      </div>
     </section>
 
     <!-- EDUCATION -->
-    <section class="section">
-      <div class="section-title">Education</div>
+    <section style="margin-bottom:48px;">
+      <p class="section-label">Education</p>
       <table class="edu-table">
         <thead>
           <tr>
             <th>Qualification</th>
-            <th>Board / University</th>
+            <th>Institution</th>
             <th>Year</th>
             <th>Result</th>
           </tr>
@@ -434,122 +411,145 @@
           <tr>
             <td>PGDCA</td>
             <td>Makhanlal Chaturvedi National University, Bhopal</td>
-            <td>2025–2026</td>
+            <td>2025–26</td>
             <td>73.8%</td>
           </tr>
           <tr>
-            <td>ADIS (Diploma in Industrial Safety)</td>
+            <td>ADIS</td>
             <td>MSBTE, Mumbai</td>
             <td>2026</td>
-            <td>Result Awaited</td>
+            <td style="color:#D97706">Awaited</td>
           </tr>
         </tbody>
       </table>
     </section>
 
-  </div><!-- /main-col -->
+    <!-- ACHIEVEMENTS -->
+    <section>
+      <p class="section-label">Key Achievements</p>
+      <div class="achievement-grid">
+        <div class="ach-card">Coordinated safety and technical training programs at a 3960 MW ultra-scale power plant.</div>
+        <div class="ach-card">Maintained accurate training and compliance documentation across all statutory requirements.</div>
+        <div class="ach-card">Supported implementation of HIRA, BBS, PTW, and Near-Miss reporting systems plant-wide.</div>
+        <div class="ach-card">Assisted management through MIS, MOPR, ERM, and QRM reporting pipelines.</div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- RIGHT SIDEBAR -->
-  <aside class="sidebar">
+  <aside>
 
-    <!-- SKILLS -->
-    <section class="section">
-      <div class="section-title">Core Skills</div>
+    <!-- CORE SKILLS -->
+    <div class="sidebar-card">
+      <p class="section-label" style="margin-bottom:18px;">Core Skills</p>
 
       <div class="skill-group">
-        <div class="skill-group-label">Industrial Safety</div>
+        <div class="skill-group-title">Industrial Safety</div>
         <div class="skill-tags">
-          <span class="skill-tag accent">HIRA</span>
-          <span class="skill-tag accent">BBS</span>
-          <span class="skill-tag accent">PTW</span>
-          <span class="skill-tag accent">Near-Miss Reporting</span>
-          <span class="skill-tag">LOTO</span>
-          <span class="skill-tag">Work at Height</span>
-          <span class="skill-tag">Confined Space</span>
-          <span class="skill-tag">Electrical Safety</span>
-          <span class="skill-tag">Chemical Safety</span>
-          <span class="skill-tag">Scaffolding</span>
+          <span class="skill-tag amber">HIRA</span>
+          <span class="skill-tag amber">BBS</span>
+          <span class="skill-tag amber">PTW</span>
+          <span class="skill-tag amber">Near-Miss</span>
+          <span class="skill-tag">Safety Compliance</span>
+          <span class="skill-tag">Risk Assessment</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-label">Learning &amp; Development</div>
+        <div class="skill-group-title">Learning &amp; Development</div>
         <div class="skill-tags">
           <span class="skill-tag">Training Coordination</span>
-          <span class="skill-tag">Kirkpatrick Model</span>
           <span class="skill-tag">Calendar Planning</span>
+          <span class="skill-tag">Kirkpatrick Model</span>
           <span class="skill-tag">Records Management</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-label">Documentation &amp; Reporting</div>
+        <div class="skill-group-title">Documentation</div>
         <div class="skill-tags">
           <span class="skill-tag">MIS Reports</span>
           <span class="skill-tag">MOPR</span>
           <span class="skill-tag">ERM Audit</span>
-          <span class="skill-tag">IMS Audit Docs</span>
+          <span class="skill-tag">IMS Audit</span>
         </div>
       </div>
+    </div>
 
-      <div class="skill-group">
-        <div class="skill-group-label">Software &amp; Tools</div>
-        <div class="skill-tags">
-          <span class="skill-tag accent">SAP P72</span>
-          <span class="skill-tag">FB60 / ML83</span>
-          <span class="skill-tag">MS Excel</span>
-          <span class="skill-tag">MS Word</span>
-          <span class="skill-tag">PowerPoint</span>
-        </div>
+    <!-- SOFTWARE -->
+    <div class="sidebar-card">
+      <p class="section-label" style="margin-bottom:18px;">Software</p>
+      <div class="sw-bar">
+        <div class="sw-label"><span>SAP P72 (FB60 / ML83)</span></div>
+        <div class="sw-track"><div class="sw-fill" style="width:80%"></div></div>
       </div>
-    </section>
+      <div class="sw-bar">
+        <div class="sw-label"><span>MS Excel</span></div>
+        <div class="sw-track"><div class="sw-fill" style="width:88%"></div></div>
+      </div>
+      <div class="sw-bar">
+        <div class="sw-label"><span>MS Word</span></div>
+        <div class="sw-track"><div class="sw-fill" style="width:90%"></div></div>
+      </div>
+      <div class="sw-bar">
+        <div class="sw-label"><span>MS PowerPoint</span></div>
+        <div class="sw-track"><div class="sw-fill" style="width:85%"></div></div>
+      </div>
+      <div class="sw-bar">
+        <div class="sw-label"><span>Email &amp; Doc Systems</span></div>
+        <div class="sw-track"><div class="sw-fill" style="width:92%"></div></div>
+      </div>
+    </div>
 
     <!-- CERTIFICATIONS -->
-    <section class="section">
-      <div class="section-title">Certifications</div>
-
+    <div class="sidebar-card">
+      <p class="section-label" style="margin-bottom:18px;">Certifications</p>
       <div class="cert-item">
         <div class="cert-dot"></div>
-        <div>Advanced Diploma in Industrial Safety (ADIS) — Result Awaited</div>
+        <div>
+          <div class="cert-name">ADIS</div>
+          <div class="cert-sub">Advanced Diploma in Industrial Safety — MSBTE, Mumbai (Result Awaited)</div>
+        </div>
       </div>
       <div class="cert-item">
         <div class="cert-dot"></div>
-        <div>Post Graduate Diploma in Computer Applications (PGDCA)</div>
+        <div>
+          <div class="cert-name">PGDCA</div>
+          <div class="cert-sub">Post Graduate Diploma in Computer Applications</div>
+        </div>
       </div>
       <div class="cert-item">
         <div class="cert-dot"></div>
-        <div>First Aid &amp; CPR Certified</div>
+        <div>
+          <div class="cert-name">First Aid &amp; CPR</div>
+          <div class="cert-sub">Certified in First Aid &amp; CPR</div>
+        </div>
       </div>
       <div class="cert-item">
         <div class="cert-dot"></div>
-        <div>Industrial Safety &amp; Emergency Response Training</div>
+        <div>
+          <div class="cert-name">Emergency Response</div>
+          <div class="cert-sub">Industrial Safety &amp; Emergency Response Training</div>
+        </div>
       </div>
-    </section>
+    </div>
 
     <!-- PERSONAL -->
-    <section class="section">
-      <div class="section-title">Personal Details</div>
+    <div class="sidebar-card">
+      <p class="section-label" style="margin-bottom:18px;">Personal</p>
       <div class="personal-row">
-        <span class="personal-label">Nationality</span>
-        <span>Indian</span>
+        <span class="personal-icon">🌏</span>
+        <span>Indian Nationality</span>
       </div>
       <div class="personal-row">
-        <span class="personal-label">Languages</span>
+        <span class="personal-icon">🗣️</span>
         <span>Hindi &amp; English</span>
       </div>
-      <div class="personal-row">
-        <span class="personal-label">Location</span>
-        <span>Singrauli, MP</span>
-      </div>
-    </section>
+    </div>
 
   </aside>
-
-</main>
-
-<footer>
-  <strong>Alok Kumar Upadhyay</strong> &nbsp;·&nbsp; I hereby declare that all information provided is true and correct to the best of my knowledge.
-</footer>
+</div>
 
 </body>
 </html>
